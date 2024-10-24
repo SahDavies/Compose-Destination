@@ -28,6 +28,9 @@ Destination is a very simple route management model with a descriptive and frien
 
 ### Usage
 ```kotlin
+val FORM_ROUTE = generateRoute("form") // takes no argument
+
+// takes are required argument and two optional argument
 val PROFILE_ROUTE = generateRoute("profile") {  
     withRequiredArgs("email")
       
