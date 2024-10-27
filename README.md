@@ -1,5 +1,5 @@
 # Compose-Destination
-Destination is a very simple route management model with a descriptive and friendly usage. Destination is a class that reliably creates string routes with the correct pattern easing the burden from the developer as well as mitigating errors. To learn more on how to navigate using this class and how to enforce type safety for arguments check here
+Destination is a very simple route management model with a descriptive and friendly usage. Destination is a class that reliably creates string routes with the correct pattern easing the burden from the developer as well as mitigating errors. To learn more on how to navigate using this class and how to enforce type safety for arguments check [here](https://medium.com/@SirDavies/compose-navigation-the-old-way-af0f6add8743)
 ### API
 | Properties    | Type                     | Description                                                                                                             |
 | :------------ | ------------------------ | :---------------------------------------------------------------------------------------------------------------------- |
