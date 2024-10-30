@@ -8,15 +8,15 @@ Destination is a very simple route management model with a descriptive and frien
 
 | Return Type   | Function                                                             | Description                                                                                                                                                                                                                                                                    |
 | ------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `String`      | **`navRoute(block: Builder.() -> Unit = {})`**                       | Constructs route that will be passed to the `navController`. This function is used to build a navigation route string, appending actual argument values.                                                         |
+| `String`      | **`navRoute(block: Utility.() -> Unit = {})`**                       | Constructs route that will be passed to the `navController`. This function is used to build a navigation route string, appending actual argument values.                                                         |
 | `Destination` | **`generateRoute(routeID: String, block: Builder.() -> Unit = {})`** | This is a static helper function used to instantiate a `Destination` object. It constructs the route property of the destination class with a unique route name - `routeID`. The builder pattern is applied here to allow modifications of the route (e.g., adding arguments). |
 
 #### **Member Function**
 ---
-**`navRoute(block: Builder.() -> Unit = {}): String`**
+**`navRoute(block: Utility.() -> Unit = {}): String`**
 - **Return value:** A string representing the full route, including the actual arguments if provided (required or optional).
 - **Parameters:**
-	- `block: Builder.() -> Unit` — a lambda block with access to utility functions used to modify the route during construction.
+	- `block: Utility.() -> Unit` — a lambda block with access to utility functions used to modify the route during construction.
 
 ##### **Companion Object Functions**
 
