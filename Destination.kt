@@ -1,4 +1,4 @@
-class Destination(
+class Destination private constructor (
     routeId: String,
     private val count: Int = 0,
     val namedArgs: List<NamedNavArgument> = emptyList()
