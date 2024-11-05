@@ -1,6 +1,6 @@
-class Destination private constructor (
+class Destination private constructor(
     routeId: String,
-    private val count: Int = 0,
+    private val requiredArgCount: Int = 0,
     val namedArgs: List<NamedNavArgument> = emptyList()
 ) {
 
@@ -17,11 +17,13 @@ class Destination private constructor (
 
     fun navRoute(block: Utility.() -> Unit = {}): String = Utility().apply(block).buildRoute()
 
-    inner class Utility {
+    inner class Utility internal constructor() {
         private var requiredArgs: String = this@Destination.route.substringBefore('?')
         private var optionalArgs: String = ""
+
         fun requiredArgs(vararg args: String) = apply {
-            if (this@Destination.count != args.size) return@apply
+            if (this@Destination.requiredArgCount != args.size) return@apply
+            args.forEach { if (it.isEmpty()) return@apply }
             requiredArgs = requiredArgs.substringBefore('/') + args.joinToString(prefix = "/", separator = "/").trimEnd('/')
         }
 
@@ -30,9 +32,10 @@ class Destination private constructor (
                 "${navArg.name}=$arg"
             }.trimEnd('&', '?')
         }
+
         fun buildRoute(): String = requiredArgs + optionalArgs
     }
-    class Builder(baseRoute: String) {
+    class Builder internal constructor(baseRoute: String) {
         private var count = 0   // holds tally for required argument
         private var requiredArgs: String = baseRoute
         private var namedNavArgs: List<NamedNavArgument> = emptyList()
